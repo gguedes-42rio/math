@@ -1,6 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
+#include "my_math.h"
 
 void	simp(int n1, int n2)
 {
@@ -20,26 +18,18 @@ void	simp(int n1, int n2)
 	printf("x1: %i/%i\n", n1, n2);
 }
 
-int	main(int argc, char **argv)
+void	bhaskara(int a, int b, int c)
 {
-	int	a;
-	int	b;
-	int	c;
 	int	delta;
 	int	x1;
 	int	x2;
 
-	if (argc != 4)
-		return (1);
-	a = atoi(argv[1]);
-	b = atoi(argv[2]);
-	c = atoi(argv[3]);
 	delta = pow(b, 2) - 4 * a * c;
 	printf("delta: %i\n", delta);
 	if (delta < 0)
 	{
 		printf("não possui raiz real\n");
-		return (1);
+		return ;
 	}
 	x1 = -b + sqrt(delta);
 	a *= 2;
@@ -52,5 +42,4 @@ int	main(int argc, char **argv)
 		simp(x2, a);
 	else
 		printf("x1: %i\n", x2 / a);
-	return (0);
 }

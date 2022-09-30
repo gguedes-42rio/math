@@ -1,17 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int	main(int argc, char **argv)
+void	mmc(int n1, int n2)
 {
-	int	n1;
-	int	n2;
 	int	i;
 	int	j;
 
-	if (argc != 3)
-		return (1);
-	n1 = atoi(argv[1]);
-	n2 = atoi(argv[2]);
 	i = 1;
 	j = 1;
 	while (n1 != 1 || n2 != 1)
@@ -29,5 +23,4 @@ int	main(int argc, char **argv)
 		}
 	}
 	printf("		%i\n", j);
-	return (0);
 }

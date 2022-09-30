@@ -1,4 +1,6 @@
-SRC		=	mmc.c mdc.c bhaskara.c torricelli.c \
+NAME	=	my_math
+
+SRC		=	my_math.c mmc.c mdc.c bhaskara.c torricelli.c \
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -8,17 +10,10 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 RM		=	rm -f
 
-mdc: mdc.o
-	$(CC) mdc.o -o mdc
+all: $(NAME)
 
-mmc: mmc.o
-	$(CC) mmc.o -o mmc
-
-bhaskara: bhaskara.o
-	$(CC) bhaskara.o -o bhaskara -lm
-
-torricelli: torricelli.o
-	$(CC) torricelli.o -o torricelli -lm
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -lm
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
@@ -27,6 +22,8 @@ clean:
 	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) mdc mmc bhaskara torricelli
+	$(RM) $(NAME)
+
+re: all fclean
 
 .PHONY: clean fclean
